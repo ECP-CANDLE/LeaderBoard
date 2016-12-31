@@ -1,8 +1,8 @@
 # Leaderboard repo
 
-client  
-    directory for the leaderboard client code
-server  
+##client
+    directory for the leaderboard client code 
+##server  
     directory for the leaderboard server code
-visualization
+##visualization  
     directory for the leaderboard visualization code
