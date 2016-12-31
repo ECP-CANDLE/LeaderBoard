@@ -6,6 +6,19 @@ import requests
 import uuid
 import logging
 
+"""Modules for importing and querying benchmark data to CANDLE leaderboard
+database.
+
+The CANDLE users can use this module to import the data the central CANDLE
+leaderboard database and query the results.
+"""
+
+__author__ = "Prasanna Balaprakash"
+__maintainer__ = "Prasanna Balaprakash"
+__email__ = "pbalapra@anl.gov"
+__status__ = "Developement"
+
+
 URL = 'http://pubseed.theseed.org/leaderboard'
 URL_LOCAL = 'http://0.0.0.0:7137/leaderboard'
 
@@ -116,18 +129,19 @@ if __name__ == '__main__':
     outputJsonFileName = None
     outputJsonFileName = False
     parser = argparse.ArgumentParser(add_help=True)
-    parser.add_argument('--version', action='version', version='%(prog)s 0.1')
-    parser.add_argument('--outputJsonFileName', action='store',
+    parser.add_argument('-v', '--version', action='version',
+                        version='%(prog)s 0.1')
+    parser.add_argument('-o', '--outputJsonFileName', action='store',
                         dest='outputJsonFileName',
                         help='Json file name to write the results from query')
     parser.add_argument('--local', action='store_true', dest='localTest',
                         help=argparse.SUPPRESS)
     group = parser.add_argument_group('required arguments')
-    group.add_argument('--importJsonFileName', action='store',
+    group.add_argument('-i', '--importJsonFileName', action='store',
                        dest='jsonFileName',
                        help='Json file that need to be imported')
-    group.add_argument('--benchmarkName', action='store', dest='benchmarkName',
-                       help='benchmark name to query')
+    group.add_argument('-q', '--queryBenchmarkname', action='store',
+                       dest='benchmarkName', help='benchmark name to query')
     cmdLineArgs = parser.parse_args()
     if cmdLineArgs.benchmarkName is not None:
         logger.info('Benchmark name = %s', cmdLineArgs.benchmarkName)
