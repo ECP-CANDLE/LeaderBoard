@@ -22,9 +22,11 @@ required arguments:
 # usage
 
 ##import the data in the json file to the db
-python leaderboard.py -i example1.json  
+python leaderboard.py -i example1.json
+
 python leaderboard.py -i example2.json
 
 ##query the results from db for benchmark P1B1
 python leaderboard.py -q P1B2  
+
 python leaderboard.py -q P1B1 -o output.json

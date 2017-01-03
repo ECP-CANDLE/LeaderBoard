@@ -44,9 +44,16 @@ dbConfigDict = readDBConfigFile(dbConfigFileName)
 print dbConfigDict
 candle = connect(dbConfigDict)
 
+
 @app.route("/leaderboard")
 def ping():
     return "Welcome to leaderboard!\n"
+
+
+@app.route("/leaderboard/test")
+def test():
+    return "Leaderboard test OK!\n"
+
 
 @app.route('/leaderboard/insert/<uuid>', methods=['GET', 'POST'])
 def add_message(uuid):
@@ -58,6 +65,7 @@ def add_message(uuid):
         logger.info('error in inserting record to db: %s' % sys.exc_info()[0])
         uuid = -1
     return jsonify({"uuid": uuid})
+
 
 @app.route('/leaderboard/query/<bname>', methods=['GET', 'POST'])
 def queryBenchmarkResults(bname):
