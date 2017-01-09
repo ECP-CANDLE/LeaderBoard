@@ -47,7 +47,7 @@ class LeaderBoard:
         """validate the json record."""
         keys = record.keys()
         for key in keys:
-            print key
+            print(key)
             if key not in FIELDS:
                 logger.info('key %s is missing in JSON file' % key)
                 sys.exit(2)
@@ -61,8 +61,8 @@ class LeaderBoard:
                 if 'benchmarkName' in record.keys():
                     if benchmarkName in VALID_BENCHMARKS:
                         logger.info('sending record to server')
-                        print record
-                        print benchmarkName
+                        print(record)
+                        print(benchmarkName)
                         self.sendJsonData(record)
                     else:
                         logger.info('benchmark name %s not found' %
@@ -96,7 +96,7 @@ class LeaderBoard:
         """print the result; """
         if len(results) > 0:
             if outputJsonFileName is None:
-                print json.dumps(results, indent=4, sort_keys=True)
+                print(json.dumps(results, indent=4, sort_keys=True))
             else:
                 try:
                     with open(outputJsonFileName, 'w') as outfile:

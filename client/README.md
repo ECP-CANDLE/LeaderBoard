@@ -1,5 +1,7 @@
 # Leaderboard client side script
 
+# install the package
+pip install -r requirements.txt
 
 # command line options
 python leaderboard.py --help
